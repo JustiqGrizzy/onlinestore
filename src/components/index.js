@@ -1,2 +1,9 @@
 export { default as App } from "./app/App";
 export { default as Navbar } from "./navbar/Navbar";
+export { default as StoreName } from "./storeName/StoreName";
+export { default as Second } from "./second/Second";
+export { default as SearchBar } from "./searchBar/SearchBar";
+export { default as CatalogItem } from "./catalogItem/CatalogItem";
+export { default as Main } from "./main/Main";
+export { default as Laptops } from "./laptops/Laptops";
+export { default as CatalogCard } from "./catalogCard/CatalogCard";
