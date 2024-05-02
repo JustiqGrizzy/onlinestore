@@ -5,5 +5,5 @@ export { default as Second } from "./second/Second";
 export { default as SearchBar } from "./searchBar/SearchBar";
 export { default as CatalogItem } from "./catalogItem/CatalogItem";
 export { default as Main } from "./main/Main";
-export { default as Laptops } from "./laptops/Laptops";
 export { default as CatalogCard } from "./catalogCard/CatalogCard";
+export { default as CatalogProducts } from "./catalogProducts/CatalogProducts";

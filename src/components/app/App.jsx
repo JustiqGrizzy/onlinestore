@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StoreName, Second, Navbar } from "../";
 import { Route, Routes } from "react-router-dom";
-import { Main, Laptops } from "../";
+import { Main, CatalogProducts } from "../";
 import { ApiService } from "../../service/api.service";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
       <Navbar catalogs={catalogs} />
       <Routes>
         <Route path="/" element={<Main catalogs={catalogs} />}></Route>
-        <Route path="/catalogs/:id" element={<Laptops />}></Route>
+        <Route path="/catalogs/:id" element={<CatalogProducts />}></Route>
       </Routes>
     </div>
   );

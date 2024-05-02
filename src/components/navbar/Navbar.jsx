@@ -9,7 +9,7 @@ const Navbar = ({ catalogs }) => {
       <nav className="container-lg navbar navbar-dark bg-dark px-2  ">
         <div className="d-flex">
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border border-1"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"

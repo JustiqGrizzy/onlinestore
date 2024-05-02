@@ -3,8 +3,8 @@ import "./searchBar.css";
 
 const SearchBar = () => {
   return (
-    <div className="input-group">
-      <div className="form-outline">
+    <div className="d-flex">
+      <div className="form-outline me-2">
         <input
           type="search"
           id="form1"
@@ -12,7 +12,7 @@ const SearchBar = () => {
           placeholder="Search..."
         />
       </div>
-      <button type="button" className="btn btn-primary">
+      <button type="button" className="btn btn-primary ">
         <i className="bi bi-search"></i>
       </button>
     </div>
