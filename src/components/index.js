@@ -7,3 +7,4 @@ export { default as CatalogItem } from "./catalogItem/CatalogItem";
 export { default as Main } from "./main/Main";
 export { default as CatalogCard } from "./catalogCard/CatalogCard";
 export { default as CatalogProducts } from "./catalogProducts/CatalogProducts";
+export { default as ProductCard } from "./productCard/ProductCard";

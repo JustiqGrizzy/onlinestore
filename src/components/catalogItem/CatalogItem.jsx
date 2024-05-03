@@ -11,7 +11,7 @@ const CatalogItem = ({ catalogs }) => {
   return (
     <div>
       {catalogs.map((item) => (
-        <Link to={`/catalogs/${item.id}`} style={{ textDecoration: "none" }}>
+        <Link to={`${item.name}`} style={{ textDecoration: "none" }}>
           <div key={item.id} className="catalogBox ">
             <h6
               style={{

@@ -18,10 +18,12 @@ const App = () => {
       <StoreName />
       <Second />
       <Navbar catalogs={catalogs} />
-      <Routes>
-        <Route path="/" element={<Main catalogs={catalogs} />}></Route>
-        <Route path="/catalogs/:id" element={<CatalogProducts />}></Route>
-      </Routes>
+      <div className="background">
+        <Routes>
+          <Route path="/" element={<Main catalogs={catalogs} />}></Route>
+          <Route path="/:id" element={<CatalogProducts />}></Route>
+        </Routes>
+      </div>
     </div>
   );
 };
