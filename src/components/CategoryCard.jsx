@@ -1,14 +1,17 @@
 import React from "react";
-import "./catalogCard.css";
 import { Link } from "react-router-dom";
 
-const CatalogCard = ({ catalogs }) => {
+const CategoryCard = ({ categories }) => {
   return (
     <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 g-4">
-      {catalogs.map((item) => (
-        <Link to={`${item.name}`} style={{ textDecoration: "none" }}>
+      {categories.map((item) => (
+        <Link
+          to={`category/${item.id}`}
+          style={{ textDecoration: "none" }}
+          key={item.id}
+        >
           <div className="col">
-            <div className="card border border-dark border-2" key={item.id}>
+            <div className="card border border-dark border-2 cursor-pointer">
               <img
                 height={"250px"}
                 src={item.imageUrl}
@@ -26,4 +29,4 @@ const CatalogCard = ({ catalogs }) => {
   );
 };
 
-export default CatalogCard;
+export default CategoryCard;
