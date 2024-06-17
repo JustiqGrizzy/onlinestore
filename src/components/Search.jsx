@@ -18,7 +18,7 @@ const Search = () => {
   useEffect(() => {
     dispatch(getSearchProductsStart());
     ProductService.getSearchProducts(id)
-      .then((data) => getSearchProductsSucces(data))
+      .then((data) => dispatch(getSearchProductsSucces(data)))
       .catch((err) => console.log(err));
   }, [id]);
 

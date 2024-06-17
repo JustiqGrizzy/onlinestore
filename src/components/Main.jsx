@@ -1,7 +1,7 @@
 import React from "react";
 import { CategoryCard } from "./";
 import { useSelector } from "react-redux";
-import Loader from "../ui/Loader";
+import { Loader } from "../ui";
 
 const Main = ({ categories }) => {
   const { isLoading } = useSelector((state) => state.category);

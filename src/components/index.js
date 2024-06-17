@@ -12,3 +12,6 @@ export { default as ProductDetails } from "./ProductDetails";
 export { default as Search } from "./Search";
 export { default as PriceCard } from "./PriceCard";
 export { default as FullInfoCard } from "./FullInfoCard";
+export { default as Login } from "./Login";
+export { default as Register } from "./Register";
+export { default as ValidationError } from "./ValidationError";

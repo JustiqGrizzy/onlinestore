@@ -7,6 +7,8 @@ import {
   Search,
   Main,
   CategoryProducts,
+  Login,
+  Register,
 } from "./components";
 import { Route, Routes } from "react-router-dom";
 import CategoryService from "./service/category";
@@ -22,7 +24,7 @@ const App = () => {
     CategoryService.getCategories()
       .then((data) => dispatch(getCategoriesSucces(data)))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
     <div className="container-fluid p-0">
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="/category/:id" element={<CategoryProducts />}></Route>
           <Route path="/product/:id" element={<ProductDetails />}></Route>
           <Route path="/search/:id" element={<Search />}></Route>
+
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </div>
     </div>

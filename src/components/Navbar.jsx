@@ -1,7 +1,21 @@
 import React from "react";
-import { CategoryItem, SearchBar } from "./";
+import { CategoryItem, Login, SearchBar } from "./";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../slice/auth";
+import { removeItem } from "../helpers/persistance-storage";
 
 const Navbar = ({ categories }) => {
+  const { loggedIn, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = (e) => {
+    dispatch(logoutUser());
+    removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div className="container-fluid bg-dark ">
       <nav className="container-lg navbar navbar-dark bg-dark px-2 d-flex align-items-center">
@@ -37,18 +51,40 @@ const Navbar = ({ categories }) => {
           </div>
         </div>
         <SearchBar />
+        {loggedIn ? (
+          <div className="d-flex text-white">
+            <p className="pt-2 me-2 text-capitalize fw-bold">{user.username}</p>
+            <button className="btn btn-outline-danger" onClick={logoutHandler}>
+              {" "}
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div
+            className="d-flex text-white"
+            data-bs-target="#exampleModalToggle"
+            data-bs-toggle="modal"
+            style={{
+              fontSize: "20px",
+              cursor: "pointer",
+            }}
+          >
+            <p className="pt-2">Login</p>
+            <i
+              className="bi bi-person-circle ms-2"
+              style={{ fontSize: "30px" }}
+            ></i>
+          </div>
+        )}
+
         <div
-          className="d-flex text-white"
-          style={{
-            fontSize: "20px",
-            cursor: "pointer",
-          }}
+          className="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabIndex="-1"
         >
-          <p className="pt-2">Login</p>
-          <i
-            className="bi bi-person-circle ms-2"
-            style={{ fontSize: "30px" }}
-          ></i>
+          <Login />
         </div>
       </nav>
     </div>

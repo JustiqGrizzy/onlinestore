@@ -5,7 +5,7 @@ import ProductService from "../service/product";
 import { PriceCard, FullInfoCard } from "./";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsStart, getAllProductsSucces } from "../slice/product";
-import Loader from "../ui/Loader";
+import { Loader } from "../ui";
 
 function Arrow(props) {
   const { className, style, onClick } = props;
@@ -28,7 +28,7 @@ const ProductDetails = () => {
     ProductService.getAllProducts()
       .then((data) => dispatch(getAllProductsSucces(data)))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   const settings = {
     dots: true,

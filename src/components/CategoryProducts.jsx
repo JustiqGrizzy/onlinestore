@@ -7,7 +7,7 @@ import {
   getCategoryProductsStart,
   getCategoryProductsSucces,
 } from "../slice/product";
-import Loader from "../ui/Loader";
+import { Loader } from "../ui";
 
 const CategoryProducts = () => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ const CategoryProducts = () => {
     ProductService.getCategoryProducts(`${id}`)
       .then((data) => dispatch(getCategoryProductsSucces(data)))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return isLoading ? (
     <Loader />
