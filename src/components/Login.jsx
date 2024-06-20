@@ -1,28 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Input } from "../ui";
-
 import { useDispatch, useSelector } from "react-redux";
-import { signUserFailure, signUserStart, signUserSuccess } from "../slice/auth";
-import AuthSerrvice from "../service/auth";
+import {
+  registerUserStart,
+  signUserFailure,
+  signUserStart,
+  signUserSuccess,
+} from "../slice/auth";
+import AuthService from "../service/auth";
 import { ValidationError } from "./";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoading, loggedIn } = useSelector((state) => state.auth);
+  const { isLoading, loggedIn, error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const modalRef = useRef(null);
 
   const loginHandler = async (e) => {
     e.preventDefault();
     dispatch(signUserStart());
     const user = { email, password };
     try {
-      const response = await AuthSerrvice.userLogin(user);
+      const response = await AuthService.userLogin(user);
       dispatch(signUserSuccess(response.user));
+      modalRef.current && modalRef.current.click();
     } catch (error) {
-      console.log(error);
+      dispatch(signUserFailure(error.response.data.errors));
     }
   };
 
@@ -33,6 +39,12 @@ const Login = () => {
       setPassword("");
     }
   }, [loggedIn]);
+
+  const registerNavigate = () => {
+    navigate("/register");
+    dispatch(registerUserStart());
+  };
+
   return (
     <>
       <div className="modal-dialog modal-dialog-centered">
@@ -41,17 +53,18 @@ const Login = () => {
             <h1 className="modal-title fs-5" id="exampleModalToggleLabel">
               Please Login
             </h1>
-            <ValidationError />
             <button
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              ref={modalRef}
             ></button>
           </div>
           <div className="modal-body">
             <form>
               <div className="row g-3">
+                <ValidationError width={"60%"} />
                 <div className="col-12">
                   <Input
                     label={"Email"}
@@ -75,7 +88,7 @@ const Login = () => {
                 type="submit"
                 onClick={loginHandler}
                 disabled={isLoading}
-                data-bs-dismiss="modal"
+                id="id01"
               >
                 {isLoading ? "loading..." : "Login"}
               </button>
@@ -90,7 +103,7 @@ const Login = () => {
                 color: "blue",
               }}
               data-bs-dismiss="modal"
-              onClick={() => navigate("/register")}
+              onClick={registerNavigate}
             >
               Click to Register
             </a>

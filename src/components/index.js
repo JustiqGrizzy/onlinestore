@@ -15,3 +15,4 @@ export { default as FullInfoCard } from "./FullInfoCard";
 export { default as Login } from "./Login";
 export { default as Register } from "./Register";
 export { default as ValidationError } from "./ValidationError";
+export { default as ProfileImage } from "./ProfileImage";

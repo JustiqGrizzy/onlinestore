@@ -11,7 +11,13 @@ const CategoryCard = ({ categories }) => {
           key={item.id}
         >
           <div className="col">
-            <div className="card border border-dark border-2 cursor-pointer">
+            <div
+              className="card border border-success border-2 cursor-pointer"
+              style={{
+                border: "2px green solid",
+                boxShadow: "5px 10px 18px grey",
+              }}
+            >
               <img
                 height={"250px"}
                 src={item.imageUrl}

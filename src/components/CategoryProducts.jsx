@@ -19,7 +19,7 @@ const CategoryProducts = () => {
     ProductService.getCategoryProducts(`${id}`)
       .then((data) => dispatch(getCategoryProductsSucces(data)))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <Loader />

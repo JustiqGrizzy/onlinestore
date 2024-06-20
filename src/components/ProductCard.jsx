@@ -17,7 +17,7 @@ const ProductCard = ({ categoryProducts }) => {
             <img
               width={"100%"}
               height={"55%"}
-              src="https://nout.uz/wp-content/uploads/2022/04/fx507-tuf2.jpg"
+              src="https://www.shutterstock.com/image-vector/img-vector-icon-design-on-260nw-2164648583.jpg"
               className="card-img-top"
               alt={item.name}
             />

@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryItem, Login, SearchBar } from "./";
+import { CategoryItem, Login, ProfileImage, SearchBar } from "./";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../slice/auth";
@@ -10,7 +10,7 @@ const Navbar = ({ categories }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = (e) => {
+  const logoutHandler = () => {
     dispatch(logoutUser());
     removeItem("token");
     navigate("/");
@@ -53,11 +53,33 @@ const Navbar = ({ categories }) => {
         <SearchBar />
         {loggedIn ? (
           <div className="d-flex text-white">
-            <p className="pt-2 me-2 text-capitalize fw-bold">{user.username}</p>
-            <button className="btn btn-outline-danger" onClick={logoutHandler}>
-              {" "}
-              Logout
-            </button>
+            <div className="dropdown ">
+              <div
+                className="text-capitalize fw-bold d-flex align-items-center "
+                style={{ cursor: "pointer" }}
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <ProfileImage name={user.username} />
+                <p className="ms-2 mt-2">{user.username}</p>
+              </div>
+              <ul class="dropdown-menu" style={{ cursor: "pointer" }}>
+                <li className="d-flex align-items-center ms-2">
+                  <i class="bi bi-person-fill"></i>
+                  <a class="dropdown-item">My profile</a>
+                </li>
+                <li className="d-flex align-items-center ms-2">
+                  <i class="bi bi-bag-check-fill"></i>
+                  <a class="dropdown-item">My orders</a>
+                </li>
+                <li className="d-flex align-items-center ms-2 ">
+                  <i class="bi bi-box-arrow-left text-danger"></i>
+                  <a class="dropdown-item text-danger" onClick={logoutHandler}>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         ) : (
           <div

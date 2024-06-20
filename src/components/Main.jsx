@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryCard } from "./";
+import { CategoryCard, ProfileImage } from "./";
 import { useSelector } from "react-redux";
 import { Loader } from "../ui";
 

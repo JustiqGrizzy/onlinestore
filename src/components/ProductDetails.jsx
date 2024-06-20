@@ -77,22 +77,22 @@ const ProductDetails = () => {
                   <div className="slider-container" style={{ marginTop: "5%" }}>
                     <Slider {...settings}>
                       <img
-                        src="https://nout.uz/wp-content/uploads/2022/04/fx507-tuf2.jpg"
+                        src="https://www.shutterstock.com/image-vector/img-vector-icon-design-on-260nw-2164648583.jpg"
                         alt="img"
                         style={{ width: "100%" }}
                       />
                       <img
-                        src="https://nout.uz/wp-content/uploads/2022/04/fx507-tuf2.jpg"
+                        src="https://www.shutterstock.com/image-vector/img-vector-icon-design-on-260nw-2164648583.jpg"
                         alt="img"
                         style={{ width: "100%" }}
                       />
                       <img
-                        src="https://nout.uz/wp-content/uploads/2022/04/fx507-tuf2.jpg"
+                        src="https://www.shutterstock.com/image-vector/img-vector-icon-design-on-260nw-2164648583.jpg"
                         alt="img"
                         style={{ width: "100%" }}
                       />
                       <img
-                        src="https://nout.uz/wp-content/uploads/2022/04/fx507-tuf2.jpg"
+                        src="https://www.shutterstock.com/image-vector/img-vector-icon-design-on-260nw-2164648583.jpg"
                         alt="img"
                         style={{ width: "100%" }}
                       />

@@ -3,13 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Input } from "../ui";
 import { useDispatch, useSelector } from "react-redux";
 import { signUserFailure, signUserStart, signUserSuccess } from "../slice/auth";
-import AuthSerrvice from "../service/auth";
+import AuthService from "../service/auth";
 import { ValidationError } from "./";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastname, setLastname] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,20 +16,17 @@ const Register = () => {
   const navigate = useNavigate();
 
   const registerHandler = async (e) => {
-    e.preventDefault();
     dispatch(signUserStart());
     const user = {
-      bio: { firstName, lastname },
       username: userName,
       email,
       password,
     };
     try {
-      const response = await AuthSerrvice.userRegister(user);
+      const response = await AuthService.userRegister(user);
       dispatch(signUserSuccess(response.user));
       navigate("/");
     } catch (error) {
-      console.log(error.response.data);
       dispatch(signUserFailure(error.response.data.errors));
     }
   };
@@ -60,20 +55,6 @@ const Register = () => {
           <h4 className="mb-3">Enter your information</h4>
           <form>
             <div className="row g-3">
-              <div className="col-sm-6">
-                <Input
-                  label={"Firstname"}
-                  state={firstName}
-                  setState={setFirstName}
-                />
-              </div>
-              <div className="col-sm-6">
-                <Input
-                  label={"Lastname"}
-                  state={lastname}
-                  setState={setLastname}
-                />
-              </div>
               <div className="col-12">
                 <Input
                   label={"Username"}

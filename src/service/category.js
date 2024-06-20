@@ -1,8 +1,8 @@
-import axios from "./api";
+import axios from "axios";
 
 const CategoryService = {
   async getCategories() {
-    const { data } = await axios.get(`/categories`);
+    const { data } = await axios.get(`http://localhost:1111/categories`);
     return data;
   },
 };

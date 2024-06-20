@@ -6,13 +6,13 @@
 a {
   text-decoration: none;
 }
-.background {
-  /* background-image: url("https://i.pinimg.com/236x/80/5e/cc/805eccdc9ebee0d98b4b4cd8e0f618ab.jpg");
+/* .background {
+  background-image: url("https://i.pinimg.com/236x/80/5e/cc/805eccdc9ebee0d98b4b4cd8e0f618ab.jpg");
   background-repeat: repeat;
 
   background-attachment: scroll;
-  background-position: center; */
-}
+  background-position: center;
+} */
 .buyButton {
   width: 50%;
   height: 50px;
@@ -46,3 +46,15 @@ a {
   margin-right: auto;
   margin-left: 340px;
 } */
+.user-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  background-color: brown;
+  color: #ffffff;
+  font-size: 30px;
+  border-radius: 50%;
+  font-weight: 800;
+}
